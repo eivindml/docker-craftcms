@@ -1,7 +1,7 @@
-FROM php:7.2-apache
+FROM php:7.1-apache
 
 RUN apt-get update \
-	&& apt-get install -yq apt-utils unzip libmcrypt-dev libmagickwand-dev \
+	&& apt-get install -yq apt-utils unzip libmcrypt-dev libmagickwand-dev --no-install-recommends \
 	&& docker-php-ext-install zip pdo_mysql mcrypt \
 	&& pecl install imagick \
 	&& docker-php-ext-enable imagick \
